@@ -19,11 +19,11 @@ language_translator.set_service_url(url)
 def englishToFrench(englishText):
     '''function that translates and returns en-fr'''
     frenchText = language_translator.translate(\
-        text=englishText, model_id='en-fr')
-    return frenchText
+        text=englishText, model_id='en-fr').get_result()
+    return frenchText['translations'][0]['translation']
 
 def frenchToEnglish(frenchText):
     '''function that translates and returns fr-en'''
     englishText = language_translator.translate(\
-    text=frenchText, model_id='fr-en')
-    return englishText
+        text=frenchText, model_id='fr-en').get_result()
+    return englishText['translations'][0]['translation']
